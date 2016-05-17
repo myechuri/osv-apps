@@ -1,14 +1,26 @@
 #!/bin/sh
 
+set -e
+
 # TODO: gather version number from input.
 VERSION=1.9.15
 BASEDIR=$PWD
-
 SRCDIR=$BASEDIR/nginx-$VERSION
+BUILDDIR=$BASEDIR/build
+ROOTDIR=$BASEDIR/install
 
 echo "Getting Nginx source version" $VERSION
-cd $SRCDIR
 if [ ! -f nginx-$VERSION.tar.gz ]; then
     wget nginx.org/download/nginx-$VERSION.tar.gz
 fi
 tar zxf nginx-$VERSION.tar.gz
+
+echo "Configuring Nginx build options.."
+cd $SRCDIR
+./configure --without-http_rewrite_module
+
+mkdir -p $BUILDDIR
+cd $BUILDDIR
+CFLAGS="-fPIC" CXXFLAGS="-fPIC" make ../nginx-$VERSION
+make -j4
+make install DESTDIR=$ROOTDIR

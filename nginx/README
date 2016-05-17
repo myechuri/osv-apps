@@ -1,5 +1,5 @@
-### Get Nginx source
+### Build
 
 ```
-./GET
+scripts/build image=nginx
 ```
