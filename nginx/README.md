@@ -35,4 +35,4 @@ openat64 not found
 root@ubuntu:~/osv# 
 ```
 
-Awaiting ``sigsuspend`` and ``openat64`` support in OSv to proceed.
+[Issue 747](https://github.com/cloudius-systems/osv/issues/747) blocks progress.
