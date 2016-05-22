@@ -7,8 +7,10 @@ scripts/build image=nginx
 ### Start Nginx OSv
 
 ```
-scripts/run.py
+scripts/run.py -nvd
 ```
+
+`-nv` flags are required to enable [virtual networking](https://github.com/cloudius-systems/osv/blob/master/scripts/run.py#L421) to reach Nginx server.
 
 This currently fails due to failure to lookup symbol ``sigsuspend``:
 
