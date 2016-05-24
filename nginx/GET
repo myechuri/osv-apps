@@ -25,6 +25,7 @@ cd $SRCDIR
 # Build Nginx from source.
 echo "Building Nginx from source.."
 cp $BASEDIR/nginx.conf $SRCDIR/conf/nginx.conf
+cp $BASEDIR/ngx_process.c $SRCDIR/src/os/unix/ngx_process.c
 make
 mkdir $OUTDIR
 cp objs/nginx $OUTDIR/nginx.so
