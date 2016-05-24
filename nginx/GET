@@ -20,10 +20,11 @@ tar zxf nginx-$VERSION.tar.gz
 # Configure build options.
 echo "Configuring Nginx build options.."
 cd $SRCDIR
-./configure --without-http_rewrite_module --with-cc-opt='-O2 -D_FORTIFY_SOURCE=2 -fPIC' --with-ld-opt='-pie'
+./configure --with-debug --without-http_rewrite_module --with-cc-opt='-O2 -D_FORTIFY_SOURCE=2 -fPIC' --with-ld-opt='-pie'
 
 # Build Nginx from source.
 echo "Building Nginx from source.."
+cp $BASEDIR/nginx.conf $SRCDIR/conf/nginx.conf
 make
 mkdir $OUTDIR
 cp objs/nginx $OUTDIR/nginx.so
