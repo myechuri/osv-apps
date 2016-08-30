@@ -30,6 +30,7 @@ make
 mkdir $OUTDIR
 cp objs/nginx $OUTDIR/nginx.so
 cp conf/mime.types $OUTDIR/mime.types
+cp html/index.html $OUTDIR/index.html
 
 # Generate usr.manifest.
 mkdir $BASEDIR/logs
@@ -40,6 +41,7 @@ cat > usr.manifest <<EOF
 /tools/nginx.so: \${MODULE_DIR}/out/nginx.so
 /usr/local/nginx/conf/nginx.conf: \${MODULE_DIR}/nginx.conf
 /usr/local/nginx/conf/mime.types: \${MODULE_DIR}/out/mime.types
+# /usr/local/nginx/html/index.html: \${MODULE_DIR}/out/index.html
 /usr/local/nginx/logs: \${MODULE_DIR}/logs
 EOF
 
