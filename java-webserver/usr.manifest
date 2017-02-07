@@ -1,0 +1,2 @@
+/java-webserver/HelloWebserver.class: ${MODULE_DIR}/HelloWebserver.class
+/java-webserver/HelloWebserver$MyHandler.class: ${MODULE_DIR}/HelloWebserver$MyHandler.class
